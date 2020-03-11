@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="兜兜的博客：http://huangyaru.com/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)12345678const uniqueArray = (arr) =&amp;gt; &amp;#123;       for(let i = arr.length - 1; i &amp;gt;= 0; i--)&amp;#123;">
+<meta name="description" content="兜兜的博客：https://smile-night.github.io/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)1const uniqueArray = arr =&amp;gt; arr.filter((item, i) =&amp;gt; arr.indexOf(item) === i); 2.使用reduce(适用于基">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据去重">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/数据去重/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="兜兜的博客：http://huangyaru.com/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)12345678const uniqueArray = (arr) =&amp;gt; &amp;#123;       for(let i = arr.length - 1; i &amp;gt;= 0; i--)&amp;#123;">
+<meta property="og:description" content="兜兜的博客：https://smile-night.github.io/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)1const uniqueArray = arr =&amp;gt; arr.filter((item, i) =&amp;gt; arr.indexOf(item) === i); 2.使用reduce(适用于基">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-11T01:53:07.894Z">
+<meta property="og:updated_time" content="2020-03-11T15:15:40.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据去重">
-<meta name="twitter:description" content="兜兜的博客：http://huangyaru.com/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)12345678const uniqueArray = (arr) =&amp;gt; &amp;#123;       for(let i = arr.length - 1; i &amp;gt;= 0; i--)&amp;#123;">
+<meta name="twitter:description" content="兜兜的博客：https://smile-night.github.io/以基本数据类型为例子 1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)1const uniqueArray = arr =&amp;gt; arr.filter((item, i) =&amp;gt; arr.indexOf(item) === i); 2.使用reduce(适用于基">
 
 
 
@@ -299,8 +299,8 @@
       
 
       
-        <p>兜兜的博客：<a href="http://huangyaru.com/" target="_blank" rel="noopener">http://huangyaru.com/</a><br>以基本数据类型为例子</p>
-<p>1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const uniqueArray = (arr) =&gt; &#123;</span><br><span class="line">       for(let i = arr.length - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">           if(arr.indexOf(arr[i], i+1) &gt; -1)&#123;</span><br><span class="line">               arr.splice(i, 1);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       return arr;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+        <p>兜兜的博客：<a href="https://smile-night.github.io/" target="_blank" rel="noopener">https://smile-night.github.io/</a><br>以基本数据类型为例子</p>
+<p>1.splice和indexOf结合去重(map、forEach都能实现，适用于基本数据类型和引用数据类型)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const uniqueArray = arr =&gt; arr.filter((item, i) =&gt; arr.indexOf(item) === i);</span><br></pre></td></tr></table></figure></p>
 <p>2.使用reduce(适用于基本数据类型和引用数据类型)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let hash = &#123;&#125;;</span><br><span class="line"> arr = arr.reduce((temp, value) =&gt; &#123;</span><br><span class="line">     hash[value] ? null : hash[value]=true &amp;&amp; temp.push(value);</span><br><span class="line">     return temp;</span><br><span class="line"> &#125;, [])</span><br></pre></td></tr></table></figure></p>
 <p>3.使用ES6的Set(适用于基本数据类型)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = Array.from(new Set(arr))或者arr = [...new Set(arr)]</span><br></pre></td></tr></table></figure></p>
 <hr>
