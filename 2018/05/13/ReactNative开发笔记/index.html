@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一：环境构建1: node+git，不多说(node版本必须是8+)2：python2,目前还不支持python33：Java Development Kit [JDK] 1.84：Android Studio，这里推荐大家直接下载android-studio-bundle，这里面直接包含了Android SDK，配置更方便5：模拟器Genymotion，或者其他的安卓模拟器都OK6：react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative开发笔记">
+<meta property="og:url" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一：环境构建1: node+git，不多说(node版本必须是8+)2：python2,目前还不支持python33：Java Development Kit [JDK] 1.84：Android Studio，这里推荐大家直接下载android-studio-bundle，这里面直接包含了Android SDK，配置更方便5：模拟器Genymotion，或者其他的安卓模拟器都OK6：react">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_3.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_4.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_5.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_6.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_7.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_8.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_9.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_10.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_11.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_12.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_13.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_14.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_15.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_16.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_17.png">
+<meta property="og:updated_time" content="2020-03-11T03:50:56.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactNative开发笔记">
+<meta name="twitter:description" content="一：环境构建1: node+git，不多说(node版本必须是8+)2：python2,目前还不支持python33：Java Development Kit [JDK] 1.84：Android Studio，这里推荐大家直接下载android-studio-bundle，这里面直接包含了Android SDK，配置更方便5：模拟器Genymotion，或者其他的安卓模拟器都OK6：react">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/13/ReactNative开发笔记/RN_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/13/ReactNative开发笔记/"/>
+
+
+
+
+
+  <title>ReactNative开发笔记 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/ReactNative开发笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="兜兜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ReactNative开发笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-13T23:37:20+08:00">
+                2018-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一：环境构建"><a href="#一：环境构建" class="headerlink" title="一：环境构建"></a>一：环境构建</h1><p>1: node+git，不多说(node版本必须是8+)<br>2：python2,目前还不支持python3<br>3：Java Development Kit [JDK] 1.8<br>4：Android Studio，这里推荐大家直接下载android-studio-bundle，这里面直接包含了Android SDK，配置更方便<br>5：模拟器Genymotion，或者其他的安卓模拟器都OK<br>6：react native的版本0.54.2</p>
+<h1 id="二：调试"><a href="#二：调试" class="headerlink" title="二：调试"></a>二：调试</h1><p>1：说明：<br>  1)    react-native-cli去创建项目<br>  2)    项目最好放在磁盘根目录，否则经常会因为目录层级太深导致出错<br>2：新建项目：<br>  1)    全局安装react-native-cli和yarn: npm install -g yarn react-native-cli<br>  2)    创建项目：react-native init yourProjectName<br>  3)    打开模拟器进入yourProjectName文件夹，在package.json文件夹的scripts写如下配置：<br>  4)    “scripts”: {<br>  5)    “start”: “node node_modules/react-native/local-cli/cli.js start”,<br>  6)    “dev”: “react-native run-android”<br>  7)    }<br>  8)    运行npm run dev,这个时候在模拟器中就可以看到你的APP的运行状态，这个命令主要做了两个操作：<br>  9)    起服务，服务端口号为8081<br>  10)    在模拟器上安装开发包，并启动APP<br>  11)    服务起来之后，在浏览器中打开：<a href="http://localhost:8081/index.bundle?platform=android；如果看到一个页面的JS代码，代码就是正常的，如果代码有错误，浏览器提示是错误信息" target="_blank" rel="noopener">http://localhost:8081/index.bundle?platform=android；如果看到一个页面的JS代码，代码就是正常的，如果代码有错误，浏览器提示是错误信息</a><br>  12)    如果是模拟器，点开APP中的菜单按钮，出现调试选择框，选择Dev Settings，填写自己电脑的IP和端口号，详细步骤如下：<br>    <!-- ![images](RN_1.png) --><br>    <img src="/2018/05/13/ReactNative开发笔记/RN_1.png" alt="avatar"><br>    <img src="/2018/05/13/ReactNative开发笔记/RN_2.png" alt="avatar"><br>    <img src="/2018/05/13/ReactNative开发笔记/RN_3.png" alt="avatar"><br>  13)    下面我们开始调试页面，选择远程调试选项，然后再浏览器地址栏输入：<a href="http://localhost:8081/debugger-ui/就可以看到我们程序中打印的东西了" target="_blank" rel="noopener">http://localhost:8081/debugger-ui/就可以看到我们程序中打印的东西了</a><br>  <img src="/2018/05/13/ReactNative开发笔记/RN_4.png" alt="avatar"><br>  <img src="/2018/05/13/ReactNative开发笔记/RN_5.png" alt="avatar"></p>
+<h1 id="三：上述过程中的异常指南"><a href="#三：上述过程中的异常指南" class="headerlink" title="三：上述过程中的异常指南"></a>三：上述过程中的异常指南</h1><p>  1)    第一次项目安装失败，如果提示错误：<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_6.png" alt="avatar"><br>  解决步骤：<br>    (1)    在Android/app/src/main目录下创建一个空的assets文件夹<br>    (2)    react-native bundle –platform android –dev false –entry-file index.js –bundle-output android/app/src/main/assets/index.android.bundle –assets-dest android/app/src/main/res/<br>    (3)    重新启动项目<br>  2)    如果开启Enable Live Reload,按HOME键退出，然后再进来，周期函数会加载多次<br>  3)    要修改安装之后的APP名字：android/app/src/main/res/values/strings.xml，可以看到里面的app_name,进行修改即可<br>  4)    如果在本地调试时，浏览器出现如下的提示：关闭浏览器重新打开就可以了~<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_7.png" alt="avatar"></p>
+<h1 id="四：升级打怪（coding）"><a href="#四：升级打怪（coding）" class="headerlink" title="四：升级打怪（coding）"></a>四：升级打怪（coding）</h1><p>1）路由：react-navigation<br>  React Native中，使用react-navigation跳转路由，是叠加一个视图层，所以，返回并不会刷新页面，如果我们要做页面刷新，可以通过路由传参的方式，如：<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_8.png" alt="avatar"><br>在打开的weather页面<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_9.png" alt="avatar"><br>2）状态管理：mobx<br>  a)    npm install mobx mobx-react –save<br>  b)    如果运行起来发现@observer装饰器不识别，则npm install babel-plugin-transform-decorators-legacy –save-dev<br>  c)    如果使用过vue开发的小伙伴，对vuex肯定会非常熟悉，mobx的状态管理器的使用方法推荐：<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_10.png" alt="avatar"><br>  在子路由中的用法：<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_11.png" alt="avatar"><br>  然后在constructor中，使用this.props.loginStore.xxx就可以调用了，是不是非常方便呀~<br>3）存储：react-native-storage<br>4）热更新：pushy或code push<br>  （1）这里我采用的是pushy，其中要注意的点：<br>    a) 上传新的更新包的时候，需要在pushy后台，把之前的安装包给删掉，否则，不生效<br>    b) 修改了JS进行热更新，一定要使用markSuccess,否则，下次还会提示更新<br>5）数据请求：fetch</p>
+<h1 id="五：从VUE开发到React-Native的转变"><a href="#五：从VUE开发到React-Native的转变" class="headerlink" title="五：从VUE开发到React Native的转变"></a>五：从VUE开发到React Native的转变</h1><p>（1）条件渲染<br>  Vue: v-if=”show”<br>  React Native: this.state.show ? xxxxxx : null<br>（2）列表渲染<br>  Vue: v-for=”item in items”<br>  React Native:<br>  <img src="/2018/05/13/ReactNative开发笔记/RN_12.png" alt="avatar"><br>（3）React Native中开发和Vue中的区别<br>    1）    样式：<br>      View是块状元素，样式中不能含有和字体相关的属性，比如color，lineHeight等，文字必须包含在Text标签中，View下的Text标签是行内块元素，Text中的Text是行内元素。<br>    2）    事件：<br>      (1) 并不是任意标签的元素都具有点击事件的，在React Native中，具有点击事件的标签有：Touch开头的标签和Text， Button等。<br>    (2) 事件绑定this的几种方式：官方推荐b)这种方式，也是性能最好的方式。<br>      a) 在调用的时候使用bind绑定this<br>      <img src="/2018/05/13/ReactNative开发笔记/RN_13.png" alt="avatar"><br>      b) 在调用的时候使用bind绑定this<br>      <img src="/2018/05/13/ReactNative开发笔记/RN_14.png" alt="avatar"><br>      c) 在调用的时候使用箭头函数绑定this<br>      <img src="/2018/05/13/ReactNative开发笔记/RN_15.png" alt="avatar"><br>      d) 使用属性初始化器语法绑定this<br>      <img src="/2018/05/13/ReactNative开发笔记/RN_16.png" alt="avatar"></p>
+<h1 id="六：项目开发中碰到的一些坑"><a href="#六：项目开发中碰到的一些坑" class="headerlink" title="六：项目开发中碰到的一些坑"></a>六：项目开发中碰到的一些坑</h1><p>1）    在JS中，new Date(‘yyyy-mm-dd’)这种写法是OK的，在RN的调试模式下也是OK的，但是，在React Native的正式包中，这个是不行的<br>2）    Webview使用本地的html文件，要放在android/app/src/main/assets文件夹下<br>3）    开发的过程中，Reload的时候，有时候storage不走success也不走catch，这个时候你只要把设备或者模拟器中的APP关掉重新打开就可以了<br>4）    删除文件，经常会碰到一些文件删除不了的报错，这个时候，直接删除android/app下的build文件夹就可以，或者你这么做，在package.json文件中（如下），然后直接npm run clean<br><img src="/2018/05/13/ReactNative开发笔记/RN_17.png" alt="avatar"></p>
+<h1 id="七：总结"><a href="#七：总结" class="headerlink" title="七：总结"></a>七：总结</h1><p>由于之前没有React和安卓的开发经验，刚开始踩了很多坑，这里是以0.54.2的RN版本为例希望能够给刚从vue的开发模式转过来或者是刚开始学习React Native的小伙伴一些帮助，如果有叙述不准确或者接下来大家想知道的一些技术方向都可以发送到我的邮箱<a href="mailto:simplenight_cool@yeah.net" target="_blank" rel="noopener">simplenight_cool@yeah.net</a>，跟大家一起进步哦~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/13/用github-hexo搭建博客常用命令（笔记）/" rel="next" title="用github+hexo搭建博客常用命令（笔记）">
+                <i class="fa fa-chevron-left"></i> 用github+hexo搭建博客常用命令（笔记）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/04/数据去重/" rel="prev" title="数据去重">
+                数据去重 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">兜兜</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一：环境构建"><span class="nav-number">1.</span> <span class="nav-text">一：环境构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二：调试"><span class="nav-number">2.</span> <span class="nav-text">二：调试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三：上述过程中的异常指南"><span class="nav-number">3.</span> <span class="nav-text">三：上述过程中的异常指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四：升级打怪（coding）"><span class="nav-number">4.</span> <span class="nav-text">四：升级打怪（coding）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五：从VUE开发到React-Native的转变"><span class="nav-number">5.</span> <span class="nav-text">五：从VUE开发到React Native的转变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六：项目开发中碰到的一些坑"><span class="nav-number">6.</span> <span class="nav-text">六：项目开发中碰到的一些坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七：总结"><span class="nav-number">7.</span> <span class="nav-text">七：总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兜兜</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
